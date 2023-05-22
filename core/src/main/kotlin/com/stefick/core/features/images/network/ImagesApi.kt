@@ -1,7 +1,7 @@
 package com.stefick.core.features.images.network
 
 import com.stefick.core.features.images.models.Cat
-import com.stefick.core.features.images.models.ImagesResponse
+import com.stefick.core.features.images.network.dto.ImagesDTO
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -12,7 +12,7 @@ interface ImagesApi {
     suspend fun getCatImages(
         @Query("limit") limit: Int,
         @Query("has_breeds") hasBreeds: Int
-    ): ArrayList<ImagesResponse>
+    ): ArrayList<ImagesDTO>
 
     @GET("images/{image_id}")
     suspend fun getCatImageById(@Path("image_id") imageId: String): Cat

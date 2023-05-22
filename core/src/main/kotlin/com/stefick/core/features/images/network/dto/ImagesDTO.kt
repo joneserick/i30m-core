@@ -1,9 +1,9 @@
-package com.stefick.core.features.images.models
+package com.stefick.core.features.images.network.dto
 
-import br.com.stefick.i30m.features.breed.models.Breed
+import com.stefick.core.features.breed.models.Breed
 import com.stefick.core.features.category.models.Category
 
-data class ImagesResponse(
+data class ImagesDTO(
     val breeds: ArrayList<Breed>,
     val categories: ArrayList<Category>,
     val id: String,

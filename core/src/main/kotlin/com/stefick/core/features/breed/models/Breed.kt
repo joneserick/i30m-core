@@ -1,4 +1,4 @@
-package br.com.stefick.i30m.features.breed.models
+package com.stefick.core.features.breed.models
 
 data class Breed(
     val id: String,

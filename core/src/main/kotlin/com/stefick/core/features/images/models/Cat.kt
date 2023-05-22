@@ -1,6 +1,6 @@
 package com.stefick.core.features.images.models
 
-import br.com.stefick.i30m.features.breed.models.Breed
+import com.stefick.core.features.breed.models.Breed
 import com.google.gson.annotations.SerializedName
 import com.stefick.core.features.category.models.Category
 
