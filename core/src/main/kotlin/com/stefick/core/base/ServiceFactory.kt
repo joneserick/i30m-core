@@ -1,6 +1,5 @@
-package com.stefick.core.features.breed.network
+package com.stefick.core.base
 
-import com.stefick.core.base.BaseServiceFactory
 import com.stefick.core.base.interceptors.DefaultInterceptor
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit

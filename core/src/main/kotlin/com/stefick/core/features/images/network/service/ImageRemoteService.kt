@@ -1,12 +1,13 @@
-package com.stefick.core.features.images.network
+package com.stefick.core.features.images.network.service
 
-import com.stefick.core.features.breed.network.ServiceFactory
+import com.stefick.core.base.ServiceFactory
 import com.stefick.core.features.images.models.Cat
-import com.stefick.core.features.images.models.ImagesResponse
+import com.stefick.core.features.images.network.ImagesApi
+import com.stefick.core.features.images.network.dto.ImagesDTO
 
-class ImageRemoteService : ImagesDataSource, ServiceFactory<ImagesApi>(ImagesApi::class.java) {
+class ImageRemoteService : IImagesRemoteService, ServiceFactory<ImagesApi>(ImagesApi::class.java) {
 
-    override suspend fun getCatImages(limit: Int, hasBreeds: Int): ArrayList<ImagesResponse> =
+    override suspend fun getCatImages(limit: Int, hasBreeds: Int): ArrayList<ImagesDTO> =
         api.getCatImages(limit, hasBreeds)
 
 

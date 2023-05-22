@@ -1,13 +1,14 @@
-package com.stefick.core.features.images.network
+package com.stefick.core.features.images.network.repository
 
 import com.stefick.core.features.images.models.Cat
-import com.stefick.core.features.images.models.ImagesResponse
+import com.stefick.core.features.images.network.service.IImagesRemoteService
+import com.stefick.core.features.images.network.dto.ImagesDTO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class ImageRepository(private val remoteDataSource: ImagesDataSource) : IImageRepository {
+class ImageRepository(private val remoteDataSource: IImagesRemoteService) : IImageRepository {
 
-    override suspend fun getCatImages(limit: Int, hasBreeds: Int): Flow<ArrayList<ImagesResponse>> {
+    override suspend fun getCatImages(limit: Int, hasBreeds: Int): Flow<ArrayList<ImagesDTO>> {
         return flow {
             emit(remoteDataSource.getCatImages(limit, hasBreeds))
         }
