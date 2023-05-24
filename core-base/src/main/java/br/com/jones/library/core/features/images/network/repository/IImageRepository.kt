@@ -1,0 +1,22 @@
+package br.com.jones.library.core.features.images.network.repository
+
+import br.com.jones.library.core.features.images.models.Cat
+import br.com.jones.library.core.features.images.network.dto.ImagesDTO
+import kotlinx.coroutines.flow.Flow
+import retrofit2.http.Path
+import retrofit2.http.Query
+
+interface IImageRepository {
+
+    suspend fun getCatImages(limit: Int, hasBreeds: Int): Flow<ArrayList<ImagesDTO>>
+
+    suspend fun getCatImageById(@Path("image_id") imageId: String): Flow<Cat>
+
+    suspend fun getCatImageById(
+        @Path("image_id") imageId: String,
+        @Query("sub_id") subId: String,
+        @Query("size") size: Short,
+        @Query("include_vote") includeVote: Boolean,
+        @Query("include_favorites") includeFavorites: Boolean
+    ): Flow<Cat>
+}
