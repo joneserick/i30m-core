@@ -20,6 +20,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+            buildConfigField("String", "DEVELOPER_KEY", "\"${System.getenv("DEVELOPER_KEY")}\"")
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
