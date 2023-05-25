@@ -1,7 +1,7 @@
 package br.com.jones.library.core.base.di
 
 import br.com.jones.library.core.features.breed.network.repository.BreedRepository
-import br.com.jones.library.core.features.breed.network.service.BreedDataSource
+import br.com.jones.library.core.features.breed.network.service.BreedService
 import br.com.jones.library.core.features.breed.network.service.BreedRemoteDataSource
 import br.com.jones.library.core.features.images.network.repository.IImageRepository
 import br.com.jones.library.core.features.images.network.repository.ImageRepository
@@ -14,7 +14,7 @@ object I30MCoreDI {
     var module = module {
 
         factory<BreedRemoteDataSource> {
-            BreedDataSource()
+            BreedService()
         }
 
         factory<br.com.jones.library.core.features.breed.network.repository.IBreedRepository> {

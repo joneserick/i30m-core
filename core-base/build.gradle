@@ -34,10 +34,12 @@ dependencies {
     def koin_android_compose_version = '3.4.4'
 
     def retrofit_version = '2.9.0'
+    def mockk_version = '1.13.5'
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
 
 
     //Koin
@@ -62,10 +64,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+
     // Koin Test features
     testImplementation "io.insert-koin:koin-test:$koin_version"
     // Koin for JUnit 4
     testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
 
 
 }
