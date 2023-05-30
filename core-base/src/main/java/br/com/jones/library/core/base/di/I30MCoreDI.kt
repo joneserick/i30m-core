@@ -12,7 +12,7 @@ import org.koin.dsl.module
 
 object I30MCoreDI {
 
-    var module = module {
+    var baseModule = module {
 
         factory<BreedRemoteDataSource> {
             BreedService()

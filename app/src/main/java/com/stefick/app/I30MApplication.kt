@@ -18,7 +18,7 @@ class I30MApplication : Application() {
 
             androidContext(this@I30MApplication)
 
-            modules(I30MCoreDI.module)
+            modules(I30MCoreDI.baseModule)
 
         }
     }
