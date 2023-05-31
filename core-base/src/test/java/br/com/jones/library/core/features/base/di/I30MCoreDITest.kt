@@ -1,6 +1,7 @@
-package br.com.jones.library.core.base.di
+package br.com.jones.library.core.features.base.di
 
-import br.com.jones.library.core.features.breed.network.service.BreedRemoteDataSource
+import br.com.jones.library.core.base.di.I30MCoreDI
+import br.com.jones.library.core.features.breed.network.service.IBreedRemoteDataSource
 import br.com.jones.library.core.features.images.network.service.ImagesRemoteDataSource
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,7 +25,7 @@ class I30MCoreDITest : KoinTest {
         i30MModule.verify(
             extraTypes = listOf(
                 ImagesRemoteDataSource::class,
-                BreedRemoteDataSource::class
+                IBreedRemoteDataSource::class
             )
         )
     }

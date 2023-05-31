@@ -1,5 +1,6 @@
-package br.com.jones.library.core.base
+package br.com.jones.library.core.features.base
 
+import br.com.jones.library.core.base.BaseServiceFactory
 import br.com.jones.library.core.mocks.MockApi
 import br.com.jones.library.core.mocks.MockService
 import org.junit.Before

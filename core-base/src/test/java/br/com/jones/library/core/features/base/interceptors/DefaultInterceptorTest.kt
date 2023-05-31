@@ -1,4 +1,4 @@
-package br.com.jones.library.core.base.interceptors
+package br.com.jones.library.core.features.base.interceptors
 
 import br.com.jones.library.core.base.interceptors.DefaultInterceptor
 import io.mockk.every
