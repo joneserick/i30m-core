@@ -1,13 +1,13 @@
-package br.com.jones.library.core.features.images.network.service
+package br.com.jones.library.core.features.cat.network.service
 
 import br.com.jones.library.core.base.BaseServiceFactory
-import br.com.jones.library.core.features.images.models.Cat
-import br.com.jones.library.core.features.images.network.ImagesApi
-import br.com.jones.library.core.features.images.network.dto.ImagesDTO
+import br.com.jones.library.core.features.cat.models.Cat
+import br.com.jones.library.core.features.cat.network.CatApi
+import br.com.jones.library.core.features.cat.network.dto.CatDTO
 
-class ImagesService : BaseServiceFactory<ImagesApi>(ImagesApi::class.java), ImagesRemoteDataSource {
+class CatRemoteService : BaseServiceFactory<CatApi>(CatApi::class.java), ICatRemoteDataSource {
 
-    override suspend fun getCatImages(limit: Int, hasBreeds: Int): ArrayList<ImagesDTO> =
+    override suspend fun getCatImages(limit: Int, hasBreeds: Int): List<CatDTO> =
         api.getCatImages(limit, hasBreeds)
 
 

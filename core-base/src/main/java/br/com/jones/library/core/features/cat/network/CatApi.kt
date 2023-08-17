@@ -1,18 +1,18 @@
-package br.com.jones.library.core.features.images.network
+package br.com.jones.library.core.features.cat.network
 
-import br.com.jones.library.core.features.images.models.Cat
-import br.com.jones.library.core.features.images.network.dto.ImagesDTO
+import br.com.jones.library.core.features.cat.models.Cat
+import br.com.jones.library.core.features.cat.network.dto.CatDTO
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface ImagesApi {
+interface CatApi {
 
     @GET("images/search")
     suspend fun getCatImages(
         @Query("limit") limit: Int,
         @Query("has_breeds") hasBreeds: Int
-    ): ArrayList<ImagesDTO>
+    ): List<CatDTO>
 
     @GET("images/{image_id}")
     suspend fun getCatImageById(@Path("image_id") imageId: String): Cat

@@ -1,14 +1,14 @@
-package br.com.jones.library.core.features.images.network.repository
+package br.com.jones.library.core.features.cat.network.repository
 
-import br.com.jones.library.core.features.images.models.Cat
-import br.com.jones.library.core.features.images.network.dto.ImagesDTO
-import br.com.jones.library.core.features.images.network.service.ImagesRemoteDataSource
+import br.com.jones.library.core.features.cat.models.Cat
+import br.com.jones.library.core.features.cat.network.dto.CatDTO
+import br.com.jones.library.core.features.cat.network.service.ICatRemoteDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class ImageRepository(private val remoteDataSource: ImagesRemoteDataSource) : IImageRepository {
+class CatRepository(private val remoteDataSource: ICatRemoteDataSource) : ICatRepository {
 
-    override suspend fun getCatImages(limit: Int, hasBreeds: Int): Flow<ArrayList<ImagesDTO>> {
+    override suspend fun getCatImages(limit: Int, hasBreeds: Int): Flow<List<CatDTO>> {
         return flow {
             emit(remoteDataSource.getCatImages(limit, hasBreeds))
         }

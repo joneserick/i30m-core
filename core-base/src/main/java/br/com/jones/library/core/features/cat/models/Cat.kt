@@ -1,4 +1,4 @@
-package br.com.jones.library.core.features.images.models
+package br.com.jones.library.core.features.cat.models
 
 import br.com.jones.library.core.features.breed.models.Breed
 import br.com.jones.library.core.features.category.models.Category

@@ -4,15 +4,19 @@ import br.com.jones.library.core.base.MainDispatcherRule
 import br.com.jones.library.core.features.base.di.BaseTest
 import br.com.jones.library.core.features.breed.models.Breed
 import br.com.jones.library.core.features.breed.network.dto.BreedDTO
+import br.com.jones.library.core.features.breed.network.mappers.BreedMapper
 import br.com.jones.library.core.features.breed.network.repository.BreedRepository
 import br.com.jones.library.core.features.breed.network.repository.IBreedRepository
 import br.com.jones.library.core.mocks.breeds.BreedMocks
+import io.kotlintest.matchers.asClue
+import io.kotlintest.shouldBe
 import io.kotlintest.shouldNot
 import io.kotlintest.shouldNotBe
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
@@ -34,15 +38,12 @@ class BreedRepositoryTest : BaseTest() {
     @get:Rule
     val mainDispatcherRule = MainDispatcherRule()
 
-
-    private lateinit var repository: IBreedRepository
+    private lateinit var repository: BreedRepository
 
     @Before
     fun setup() {
-        super.setUp()
-        repository = BreedRepository(breedService)
+        repository = BreedRepository(breedService, BreedMapper())
     }
-
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
@@ -74,6 +75,26 @@ class BreedRepositoryTest : BaseTest() {
         repository.getBreeds(limit, page).collect { result ->
             result shouldNotBe null
             Assert.assertTrue(result.isEmpty())
+        }
+
+    }
+
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    @Test
+    fun `should retrieve a valid breed when requesting a single one`() = runTest {
+        val mockedId = 1
+
+        val mockedBreed = BreedMocks.breedDTOMock
+
+        coEvery { breedService.getBreed(mockedId) } returns mockedBreed
+
+        repository.getBreed(mockedId).collect { result ->
+            result shouldNotBe null
+            result.asClue {
+                it.id shouldBe mockedBreed.id
+                it.name shouldBe mockedBreed.name
+            }
         }
 
     }

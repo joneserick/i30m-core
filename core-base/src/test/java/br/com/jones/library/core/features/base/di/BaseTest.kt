@@ -1,5 +1,6 @@
 package br.com.jones.library.core.features.base.di
 
+import br.com.jones.library.core.features.breed.network.mappers.BreedMapper
 import br.com.jones.library.core.features.breed.network.repository.BreedRepository
 import br.com.jones.library.core.features.breed.network.repository.IBreedRepository
 import br.com.jones.library.core.features.breed.network.service.BreedService
@@ -16,11 +17,7 @@ abstract class BaseTest : KoinTest {
 
     val breedService: BreedService = mockk(relaxed = true)
 
-    val breedRepository: BreedRepository = mockk(relaxed = true)
-
     private val module = module {
-
-        factory<IBreedRepository> { breedRepository }
 
         factory { breedService }
     }

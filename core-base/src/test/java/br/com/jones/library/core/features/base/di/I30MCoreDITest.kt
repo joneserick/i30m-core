@@ -2,7 +2,7 @@ package br.com.jones.library.core.features.base.di
 
 import br.com.jones.library.core.base.di.I30MCoreDI
 import br.com.jones.library.core.features.breed.network.service.IBreedRemoteDataSource
-import br.com.jones.library.core.features.images.network.service.ImagesRemoteDataSource
+import br.com.jones.library.core.features.cat.network.service.ICatRemoteDataSource
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
@@ -24,7 +24,7 @@ class I30MCoreDITest : KoinTest {
     fun `should inject modules correctly`() {
         i30MModule.verify(
             extraTypes = listOf(
-                ImagesRemoteDataSource::class,
+                ICatRemoteDataSource::class,
                 IBreedRemoteDataSource::class
             )
         )
