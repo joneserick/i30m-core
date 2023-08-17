@@ -1,14 +1,14 @@
-package br.com.jones.library.core.features.images.network.repository
+package br.com.jones.library.core.features.cat.network.repository
 
-import br.com.jones.library.core.features.images.models.Cat
-import br.com.jones.library.core.features.images.network.dto.ImagesDTO
+import br.com.jones.library.core.features.cat.models.Cat
+import br.com.jones.library.core.features.cat.network.dto.CatDTO
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface IImageRepository {
+interface ICatRepository {
 
-    suspend fun getCatImages(limit: Int, hasBreeds: Int): Flow<ArrayList<ImagesDTO>>
+    suspend fun getCatImages(limit: Int, hasBreeds: Int): Flow<List<CatDTO>>
 
     suspend fun getCatImageById(@Path("image_id") imageId: String): Flow<Cat>
 

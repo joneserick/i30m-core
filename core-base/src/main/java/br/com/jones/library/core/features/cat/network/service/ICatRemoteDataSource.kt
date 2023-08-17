@@ -1,13 +1,13 @@
-package br.com.jones.library.core.features.images.network.service
+package br.com.jones.library.core.features.cat.network.service
 
-import br.com.jones.library.core.features.images.models.Cat
-import br.com.jones.library.core.features.images.network.dto.ImagesDTO
+import br.com.jones.library.core.features.cat.models.Cat
+import br.com.jones.library.core.features.cat.network.dto.CatDTO
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface ImagesRemoteDataSource {
+interface ICatRemoteDataSource {
 
-    suspend fun getCatImages(limit: Int, hasBreeds: Int): ArrayList<ImagesDTO>
+    suspend fun getCatImages(limit: Int, hasBreeds: Int): List<CatDTO>
 
     suspend fun getCatImageById(@Path("image_id") imageId: String): Cat
 
