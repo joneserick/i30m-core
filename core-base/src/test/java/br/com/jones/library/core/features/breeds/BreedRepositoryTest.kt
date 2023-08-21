@@ -5,6 +5,7 @@ import br.com.jones.library.core.features.base.di.BaseTest
 import br.com.jones.library.core.features.breed.models.Breed
 import br.com.jones.library.core.features.breed.network.dto.BreedDTO
 import br.com.jones.library.core.features.breed.network.mappers.BreedMapper
+import br.com.jones.library.core.features.breed.network.mappers.BreedWeightMapper
 import br.com.jones.library.core.features.breed.network.repository.BreedRepository
 import br.com.jones.library.core.features.breed.network.repository.IBreedRepository
 import br.com.jones.library.core.mocks.breeds.BreedMocks
@@ -42,7 +43,7 @@ class BreedRepositoryTest : BaseTest() {
 
     @Before
     fun setup() {
-        repository = BreedRepository(breedService, BreedMapper())
+        repository = BreedRepository(breedService, BreedMapper(BreedWeightMapper()))
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
