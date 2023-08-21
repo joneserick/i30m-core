@@ -1,6 +1,7 @@
 package br.com.jones.library.core.base.di
 
 import br.com.jones.library.core.features.breed.network.mappers.BreedMapper
+import br.com.jones.library.core.features.breed.network.mappers.BreedWeightMapper
 import br.com.jones.library.core.features.breed.network.repository.BreedRepository
 import br.com.jones.library.core.features.breed.network.repository.IBreedRepository
 import br.com.jones.library.core.features.breed.network.service.BreedService
@@ -34,8 +35,13 @@ object I30MCoreDI {
             CatRepository(get())
         }
 
-        single {
-            BreedMapper()
+
+        factory {
+            BreedWeightMapper()
+        }
+
+        factory {
+            BreedMapper(get())
         }
 
     }
